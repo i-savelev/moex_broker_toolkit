@@ -4,9 +4,9 @@ import moex_broker_toolkit as mbtk
 if __name__ == "__main__":
     all_stock = mbtk.AllStockInfo(path=r'support_files/rates_all.csv')
     splitter_vtb = mbtk.VtbSplitter()
-    splitter_vtb.split(r'.reports/vtb20250906_20250911.xlsx')
+    splitter_vtb.split(r'.reports/vtb20250912_20250916.xlsx')
     splitter_sber = mbtk.SberSplitter()
-    splitter_sber.split(r'.reports/sber_11092025.html')
+    splitter_sber.split(r'.reports/sber_15092025.html')
 
     report_registry = mbtk.ReportRegistry()
 
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     ta = mbtk.TargetAllocator(
         distribution_table=ds,
         balance_report=br,
-        deposit=0,
+        deposit=40000,
         allow_sell=True,
         tickers_to_sell=['MGNT', 'SBMM', 'LQDT']
     )
