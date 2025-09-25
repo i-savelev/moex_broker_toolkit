@@ -1,4 +1,5 @@
 import moex_broker_toolkit as mbtk
+import datetime
 
 
 if __name__ == "__main__":
@@ -57,6 +58,7 @@ if __name__ == "__main__":
         template_path=r'moex_broker_toolkit/templates/md_template.md')
     rg = mbtk.ReportGenerator(rs)
     rg.generate_report()
-    rg.save_report(r'.output/report.md')
+    date = datetime.date.today()
+    rg.save_report(f'/Users/ilya/Documents/svlv_storage/SVLV_notebook/00_Notes/broker_report{date}.md')
 
 

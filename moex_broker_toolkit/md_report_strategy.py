@@ -2,6 +2,7 @@ import pandas as pd
 from .report_strategy import ReportStrategy
 from .target_allocator import TargetAllocator
 from pathlib import Path
+import datetime
 
 class MdReportStrategy(ReportStrategy):
     """
@@ -46,10 +47,12 @@ class MdReportStrategy(ReportStrategy):
         deposit = self.targetAllocator.deposit
         distribution_table = self.distrib_of_money_table()
         distribution_string = self.distrib_of_money_string(distribution_table)
+        date = datetime.date.today()
         context = {
             "deposit": deposit,
             "distribution_table": distribution_table.to_markdown(index=False),
             "distribution_string": distribution_string,
+            "date": date
         }
 
         try:
