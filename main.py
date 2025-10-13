@@ -5,9 +5,9 @@ import datetime
 if __name__ == "__main__":
     all_stock = mbtk.AllStockInfo(path=r'support_files/rates_all.csv')
     splitter_vtb = mbtk.VtbSplitter()
-    splitter_vtb.split(r'.reports/vtb20250912_20250916.xlsx')
+    splitter_vtb.split(r'.reports/vtb_20250917_20251012.xlsx')
     splitter_sber = mbtk.SberSplitter()
-    splitter_sber.split(r'.reports/sber_15092025.html')
+    splitter_sber.split(r'.reports/sber_09102025.html')
 
     report_registry = mbtk.ReportRegistry()
 
@@ -42,8 +42,8 @@ if __name__ == "__main__":
         distribution_table=ds,
         balance_report=br,
         deposit=40000,
-        allow_sell=True,
-        tickers_to_sell=['MGNT', 'SBMM', 'LQDT']
+        allow_sell=False,
+        tickers_to_sell=['SBMM', 'LQDT']
     )
 
     df = ta.get_distrib_of_money_df()
