@@ -47,8 +47,18 @@ class MdReportStrategy(ReportStrategy):
         deposit = self.targetAllocator.deposit
         distribution_table = self.distrib_of_money_table()
         distribution_string = self.distrib_of_money_string(distribution_table)
+        all_money_sum = round(self.all_money_sum(),)
+        stock_sum = round(self.stock_sum(),0)
+        bonds_sum = round(self.bonds_sum(),0)
+        stock_percent = round(stock_sum/all_money_sum*100, 1)
+        bonds_percent = round(bonds_sum/all_money_sum*100, 1)
         date = datetime.date.today()
         context = {
+            'all_money_sum':all_money_sum,
+            'stock_sum':stock_sum,
+            'stock_percent':stock_percent,
+            'bonds_sum':bonds_sum,
+            'bonds_percent':bonds_percent,
             "deposit": deposit,
             "distribution_table": distribution_table.to_markdown(index=False),
             "distribution_string": distribution_string,
@@ -90,6 +100,19 @@ class MdReportStrategy(ReportStrategy):
                 ]
             ]
         return df
+    
+    def all_money_sum(self):
+        return self.targetAllocator.AllocationTable['Стоимость_source'].sum()
+    
+    def stock_sum(self):
+        df = self.targetAllocator.AllocationTable
+        df = df[df['category'] == 'stock']
+        return df['Стоимость_source'].sum()
+    
+    def bonds_sum(self):
+        df = self.targetAllocator.AllocationTable
+        df = df[df['category'] == 'bonds']
+        return df['Стоимость_source'].sum()
     
     @staticmethod
     def sell_buy_string(row):

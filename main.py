@@ -41,7 +41,7 @@ if __name__ == "__main__":
     ta = mbtk.TargetAllocator(
         distribution_table=ds,
         balance_report=br,
-        deposit=40000,
+        deposit=45000,
         allow_sell=False,
         tickers_to_sell=['SBMM', 'LQDT']
     )
@@ -59,6 +59,6 @@ if __name__ == "__main__":
     rg = mbtk.ReportGenerator(rs)
     rg.generate_report()
     date = datetime.date.today()
-    rg.save_report(f'/Users/ilya/Documents/svlv_storage/SVLV_notebook/00_Notes/broker_report{date}.md')
+    rg.save_report(f'/Users/ilya/Documents/svlv_storage/SVLV_notebook/00_Notes/broker_report_{date}.md')
 
 
