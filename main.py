@@ -62,5 +62,3 @@ if __name__ == "__main__":
     rg.generate_report()
     
     rg.save_report(f'/Users/ilya/Documents/svlv_storage/SVLV_notebook/00_Notes/broker_report_{date}.md')
-
-
