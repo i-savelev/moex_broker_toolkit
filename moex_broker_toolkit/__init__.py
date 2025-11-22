@@ -3,7 +3,7 @@ from .balance_report import BalanceReport
 from .broker_parser import BrokerParser
 from .distribution_table import DistributionTable
 from .md_report_strategy import MdReportStrategy
-from . import moex_api_utils
+from ..fin_analysis.utils import moex_api_utils
 from .report_generator import ReportGenerator
 from .report_registry import ReportRegistry
 from .report_strategy import ReportStrategy
