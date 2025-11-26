@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pathlib
 import re
-from .ir_rating import IRrating
 from .utils import Plotter
 
 
