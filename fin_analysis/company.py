@@ -78,7 +78,7 @@ class Company():
         n = n+1
         last_n:pd.Series = None
         if metric in self.df.index:
-            s:pd.Series = self.df.loc[metric]
+            s = self.df.loc[metric]
             s_clean = pd.to_numeric(s, errors='coerce').fillna(0)
             last_n = s_clean.iloc[-n:]
             if len(last_n) < n:
