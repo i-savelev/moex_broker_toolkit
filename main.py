@@ -7,9 +7,9 @@ if __name__ == "__main__":
 
     all_stock = mbtk.AllStockInfo(path=r'support_files/rates_all.csv')
     splitter_vtb = mbtk.VtbSplitter()
-    splitter_vtb.split(r'.reports/vtb20251110.xlsx')
+    splitter_vtb.split(r'.reports/vtb20251026_20251125.xlsx')
     splitter_sber = mbtk.SberSplitter()
-    splitter_sber.split(r'.reports/sber_10112025.html')
+    splitter_sber.split(r'.reports/sber_14112025.html')
 
     report_registry = mbtk.ReportRegistry()
 

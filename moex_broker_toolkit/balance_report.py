@@ -1,6 +1,6 @@
 from .report_registry import ReportRegistry
 import pandas as pd
-from ..fin_analysis.utils import moex_api_utils as moex
+from fin_analysis.utils import moex_api_utils as moex
 from typing import Optional
 from .distribution_table import DistributionTable
 

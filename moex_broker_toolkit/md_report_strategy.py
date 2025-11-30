@@ -53,6 +53,14 @@ class MdReportStrategy(ReportStrategy):
         stock_percent = round(stock_sum/all_money_sum*100, 1)
         bonds_percent = round(bonds_sum/all_money_sum*100, 1)
         date = datetime.date.today()
+        target_stock = self.targetAllocator.dt.df_dict['categories'].loc[
+            self.targetAllocator.dt.df_dict['categories']['category'] == 'stock', 
+            '%'
+            ].iloc[0]
+        target_bonds = self.targetAllocator.dt.df_dict['categories'].loc[
+            self.targetAllocator.dt.df_dict['categories']['category'] == 'bonds', 
+            '%'
+            ].iloc[0]
         context = {
             'all_money_sum':all_money_sum,
             'stock_sum':stock_sum,
@@ -62,7 +70,9 @@ class MdReportStrategy(ReportStrategy):
             "deposit": deposit,
             "distribution_table": distribution_table.to_markdown(index=False),
             "distribution_string": distribution_string,
-            "date": date
+            "date": date,
+            'stock_target': target_stock, 
+            'bonds_target': target_bonds,
         }
 
         try:

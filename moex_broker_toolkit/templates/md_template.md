@@ -1,5 +1,5 @@
 ---
-name: Пополнение и ребалансировка портфеля {date}
+name: Пополнение портфеля {date}
 Date: {date}
 area: 
   - moex
@@ -14,9 +14,9 @@ tags:
 
 Общая сумма активов = {all_money_sum} руб.
 
-Акции = {stock_sum} руб. ({stock_percent}%)
+Акции = {stock_sum} руб. ({stock_percent}/{stock_target}%)
 
-Денежный рынок = {bonds_sum} руб. ({bonds_percent}%)
+Денежный рынок = {bonds_sum} руб. ({bonds_percent}/{bonds_target}%)
 
 Пополнение = {deposit}
 
